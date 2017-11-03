@@ -288,10 +288,16 @@ import java.util.LinkedList;
   }
 
   public void discardBuffer(long positionUs) {
+      try
+      {
     int sampleQueueCount = sampleQueues.length;
     for (int i = 0; i < sampleQueueCount; i++) {
       sampleQueues[i].discardTo(positionUs, false, trackGroupEnabledStates[i]);
     }
+      }
+      catch(Exception e)
+      {
+      }
   }
 
   /**
